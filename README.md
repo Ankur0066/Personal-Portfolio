@@ -29,3 +29,4 @@ MongoDB 📈: For managing the database.
 Bootstrap 📈: For responsive design elements.
 GitHub 📂: For version control and project management.
 Visual Studio Code 📊: For code editing.
+Updating README.md
