@@ -1,2 +1,0 @@
-This is the initial content for file7.txt created at Mon Aug 19 23:47:29 IST 2024
-Updated content at Mon Aug 19 23:47:29 IST 2024 with value 30152
