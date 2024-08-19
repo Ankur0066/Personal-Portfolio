@@ -1,10 +1,8 @@
 ## Recent Project Stats
 
-In the last week, there have been 53 commits.
+In the last week, there have been 58 commits.
 
 ### Inspirational Quote
 
-"Life is what happens when you're busy making other plans."
+"Do or do not. There is no try."
 
-Updating README.md
-Updating README.md
