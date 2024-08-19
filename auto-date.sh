@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Number of commits to create
-NUM_COMMITS=5
+NUM_COMMITS=3
 
 # Array of detailed update commit messages
 commit_messages=(

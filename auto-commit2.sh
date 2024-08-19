@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Number of commits to create
-NUM_COMMITS=10
+NUM_COMMITS=3
 
 # Delay between commits (in seconds)
 DELAY=5
