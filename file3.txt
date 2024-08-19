@@ -1,2 +1,0 @@
-This is the initial content for file3.txt created at Sun Aug 18 01:04:21 IST 2024
-Updated content at Sun Aug 18 01:04:21 IST 2024 with value 21457
