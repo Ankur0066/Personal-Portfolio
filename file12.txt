@@ -1,0 +1,2 @@
+This is the initial content for file12.txt created at Wed Aug 28 00:45:36 IST 2024
+Updated content at Wed Aug 28 00:45:36 IST 2024 with value 14125
