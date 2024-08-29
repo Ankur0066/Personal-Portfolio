@@ -1,2 +1,0 @@
-This is the initial content for file1.txt created at Sat Aug 24 23:09:47 IST 2024
-Updated content at Sat Aug 24 23:09:47 IST 2024 with value 3307
