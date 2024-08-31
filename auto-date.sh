@@ -71,4 +71,4 @@ do
 done
 
 # Push the changes to GitHub
-git push origin main
+git log
