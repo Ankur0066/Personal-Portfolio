@@ -1,11 +1,8 @@
 ## Recent Project Stats
 
-In the last week, there have been 83 commits.
+In the last week, there have been 15 commits.
 
 ### Inspirational Quote
 
-"The best way to predict the future is to invent it."
+"Do or do not. There is no try."
 
-Updating README.md
-Updating README.md
-Updating README.md
