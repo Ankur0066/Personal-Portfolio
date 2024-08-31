@@ -25,18 +25,14 @@ commit_messages=(
     "Revise Dockerfile for improved build process"
 )
 
-# Function to display script usage
-usage() {
-    echo "Usage: $0"
-    echo "Ensure that the REPO_PATH variable is set to your local Git repository."
-    exit 1
-}
-
 # Check if repository path exists
 if [ ! -d "$REPO_PATH" ]; then
     echo "Error: Repository path '$REPO_PATH' does not exist."
-    usage
+    exit 1
 fi
+
+# Navigate to the repository
+cd "$REPO_PATH" || { echo "Failed to navigate to repository."; exit 1; }
 
 # Function to create or modify a file with meaningful content
 modify_file() {
@@ -55,14 +51,11 @@ modify_file() {
 
 # Function to generate a random date within a specific range
 generate_random_date() {
-    local start_date="2024-07-15"
-    local end_date="2024-07-30"
-    local random_date=$(date -d "$start_date + $((RANDOM % ($(date -d "$end_date" +%s) - $(date -d "$start_date" +%s)) / 86400 + 1)) days" +"%Y-%m-%d")
+    local start_date=$(date -d "2024-07-15" +%s)
+    local end_date=$(date -d "2024-07-30" +%s)
+    local random_date=$(date -d @$((start_date + RANDOM % (end_date - start_date))) +"%Y-%m-%d")
     echo $random_date
 }
-
-# Navigate to the repository
-cd "$REPO_PATH" || { echo "Failed to navigate to repository."; exit 1; }
 
 # Ensure the repository has at least one commit
 if [ -z "$(git rev-parse --verify HEAD 2>/dev/null)" ]; then
@@ -84,7 +77,7 @@ get_last_commit_number() {
 
 last_commit=$(get_last_commit_number)
 
-# Generate commits within the specified date range
+# Iterate over the date range and create random commits
 current_date="2024-07-15"
 end_date="2024-07-30"
 
@@ -100,15 +93,26 @@ while [[ "$current_date" < "$end_date" ]]; do
         file_name="file${commit_number}.txt"
         modify_file $file_name "$commit_message"
 
-        # Stage and commit with a random time on the current date
-        commit_time=$(date -d "$current_date $((RANDOM % 24)):$((RANDOM % 60)):00" +"%Y-%m-%d %H:%M:%S")
-        GIT_AUTHOR_DATE="$commit_time" GIT_COMMITTER_DATE="$commit_time" git commit -m "$commit_message"
+        # Stage the file
+        git add "$file_name"
 
-        echo "Committed '$commit_message' on $commit_time"
+        # Ensure the file is staged
+        if git diff --cached --name-only | grep -q "$file_name"; then
+            # Generate a random time on the current date
+            commit_time=$(date -d "$current_date $((RANDOM % 24)):$((RANDOM % 60)):00" +"%Y-%m-%d %H:%M:%S")
+            GIT_AUTHOR_DATE="$commit_time" GIT_COMMITTER_DATE="$commit_time" git commit -m "$commit_message"
+            echo "Committed '$commit_message' on $commit_time"
+        else
+            echo "Failed to stage $file_name"
+        fi
     done
 
     # Move to the next day
     current_date=$(date -I -d "$current_date + 1 day")
 done
 
+# Display the commit log for review
+echo "Displaying the git commit log..."
+git log --oneline
 
+echo "Review the commits with 'git log'. Use 'git push' to push the commits to GitHub."
