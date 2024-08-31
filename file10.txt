@@ -1,2 +1,0 @@
-# FILE10.TXT
-Update database schema with new fields - Updated on 2024-09-01

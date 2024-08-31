@@ -1,2 +1,0 @@
-# FILE24.TXT
-Revise Dockerfile for improved build process - Updated on 2024-09-01
