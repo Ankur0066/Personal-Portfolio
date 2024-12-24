@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1024px;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}
+
+.btn {
+  @apply px-8 py-2 text-sm text-center transition-colors duration-200 bg-white border rounded-md text-blue-550 border-blue-550 hover:text-white hover:bg-blue-550;
+}
+
+.timeline > div:first-child {
+  margin-top: 75px;
+}
+
+.main {
+  margin-top: 100vh;
+  margin-left: calc(0.1 * var(--margin));
+  margin-right: calc(0.1 * var(--margin));
+  border-radius: calc(0.25 * var(--border-radius));
+}
+
+@media (min-width: 1200px) {
+  .main {
+    margin-top: calc(100vh - 4rem);
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+    border-radius: var(--border-radius);
+  }
+}
+
+.gradient-mesh {
+  /* background: #e099ff;
+  background-image: radial-gradient(at 41% 10%, hsla(254, 79%, 60%, 1) 0, transparent 42%), radial-gradient(at 91% 33%, hsla(286, 69%, 68%, 1) 0, transparent 46%), radial-gradient(at 5% 92%, hsla(240, 63%, 65%, 1) 0, transparent 56%), radial-gradient(at 10% 65%, hsla(265, 72%, 67%, 1) 0, transparent 59%), radial-gradient(at 21% 49%, hsla(165, 61%, 76%, 1) 0, transparent 54%); */
+}
+
+@keyframes slide-up {
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-up {
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up-partial {
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+  }
+}
+
+/* .hero-subtitle {
+  font-size: 1rem;
+} */
+/* 
+@media (min-width: 800px) {
+  .hero-subtitle {
+    font-size: 1vmin;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-subtitle {
+    font-size: 2vmin;
+  }
+} */
+
+.fade-up-partial {
+  animation: fade-up-partial 1.25s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s forwards;
+}
+
+.fade-up {
+  animation: fade-up 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1s forwards;
+}
+
+.fade-up-2 {
+  animation: fade-up 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1.5s forwards;
+}
+
+.slide-up-1 {
+  animation: slide-up 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s forwards;
+}
+
+.slide-up-2 {
+  animation: slide-up 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1s forwards;
+}
+
+@keyframes slide-up-main {
+  0% {
+    opacity: 0;
+    transform: translateY(20rem);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up-main {
+  animation: slide-up-main 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1.55s forwards;
+}
