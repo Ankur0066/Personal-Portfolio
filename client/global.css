@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+@config "../tailwind.config.ts";
+
+@layer base {
+  :root {
+    --background: 225 33% 7%;
+    --foreground: 45 33% 93%;
+    --ink: 225 33% 7%;
+    --ink-soft: 223 24% 12%;
+    --signal: 76 100% 72%;
+    --signal-soft: 76 75% 26%;
+    --card: 223 24% 12%;
+    --card-foreground: 45 33% 93%;
+    --popover: 223 24% 12%;
+    --popover-foreground: 45 33% 93%;
+    --primary: 76 100% 72%;
+    --primary-foreground: 225 33% 7%;
+    --secondary: 224 20% 17%;
+    --secondary-foreground: 45 33% 93%;
+    --muted: 222 14% 54%;
+    --muted-foreground: 222 14% 62%;
+    --accent: 224 20% 17%;
+    --accent-foreground: 76 100% 72%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 33% 93%;
+    --border: 224 18% 20%;
+    --input: 224 18% 20%;
+    --ring: 76 100% 72%;
+    --radius: 0.75rem;
+    --sidebar-background: 225 33% 7%;
+    --sidebar-foreground: 45 33% 93%;
+    --sidebar-primary: 76 100% 72%;
+    --sidebar-primary-foreground: 225 33% 7%;
+    --sidebar-accent: 224 20% 17%;
+    --sidebar-accent-foreground: 45 33% 93%;
+    --sidebar-border: 224 18% 20%;
+    --sidebar-ring: 76 100% 72%;
+  }
+
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground font-display antialiased;
+    background-image: radial-gradient(circle at 85% 5%, hsl(var(--signal) / 0.07), transparent 30rem);
+  }
+  ::selection { background: hsl(var(--signal)); color: hsl(var(--ink)); }
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) { overflow-wrap: anywhere; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .grid-bg {
+    background-image: linear-gradient(hsl(var(--foreground) / 0.045) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / 0.045) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+  .text-stroke { -webkit-text-stroke: 1px hsl(var(--foreground) / 0.25); color: transparent; }
+}
