@@ -1,14 +1,8 @@
 {
-<<<<<<< HEAD
   "endOfLine": "lf",
   "printWidth": 500,
   "semi": false,
   "singleQuote": false,
   "tabWidth": 2,
   "trailingComma": "es5"
-=======
-  "tabWidth": 2,
-  "useTabs": false,
-  "trailingComma": "all"
->>>>>>> 3f3872fb44fd917d82be3507c133ba958a68f25e
 }
